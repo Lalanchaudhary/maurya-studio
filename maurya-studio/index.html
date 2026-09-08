@@ -17,6 +17,25 @@
 
   gtag('config', 'AW-18438770077');
 </script>
+<!-- Event snippet for Outbound click conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18438770077/fxxBCOvzv_EcEJ2bpdhE',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <body>
 <header class="nav"><a class="brand" href="#home">MAURYA <em>STUDIO</em></a><button class="menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button><nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#why">Why Us</a><a href="#contact">Contact</a></nav><div class="nav-actions"><a class="call" href="tel:+917355573856">Call Now</a><a class="wa small" href="https://wa.me/917355573856" target="_blank">WhatsApp</a></div></header>
 <main>
