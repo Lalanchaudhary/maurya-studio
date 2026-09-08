@@ -15,11 +15,12 @@ function trackWhatsAppClick(source){
     if(!googleAdsConversionId.includes('XXXXXXXX')) window.gtag('event','conversion',{send_to:googleAdsConversionId});
   }
 }
+document.querySelector('.enquiry').addEventListener('submit',()=>trackWhatsAppClick('WhatsApp enquiry form'),true);
 document.querySelectorAll('a[href*="wa.me/917355573856"]').forEach(link=>{
   link.href=`https://wa.me/917355573856?text=${encodeURIComponent(whatsappMessage)}`;
-  link.addEventListener('click',()=>trackWhatsAppClick(link.textContent.trim()||'WhatsApp CTA'));
+  link.setAttribute('onclick',`trackWhatsAppClick(${JSON.stringify(link.textContent.trim()||'WhatsApp CTA')})`);
 });
 const heroImage=document.querySelector('.portrait-frame');
 heroImage.setAttribute('role','link');heroImage.setAttribute('tabindex','0');heroImage.setAttribute('aria-label','Message Maurya Studio on WhatsApp');
 const openHeroWhatsApp=()=>{trackWhatsAppClick('Hero image');window.open(`https://wa.me/917355573856?text=${encodeURIComponent(whatsappMessage)}`,'_blank')};
-heroImage.addEventListener('click',openHeroWhatsApp);heroImage.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openHeroWhatsApp()}});
+heroImage.setAttribute('onclick',"openHeroWhatsApp()");heroImage.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openHeroWhatsApp()}});
