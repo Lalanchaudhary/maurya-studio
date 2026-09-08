@@ -1,0 +1,7 @@
+const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open)});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+addEventListener('scroll',()=>document.querySelector('.nav').classList.toggle('scrolled',scrollY>10));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+const dialog=document.querySelector('.lightbox'),dialogImage=dialog.querySelector('img');document.querySelectorAll('.tile').forEach(tile=>tile.addEventListener('click',()=>{dialogImage.src=tile.querySelector('img').src;dialogImage.alt=tile.querySelector('img').alt;dialog.showModal()}));dialog.querySelector('button').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+document.querySelector('.enquiry').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target),message=`Hello Maurya Studio, I would like to enquire about your photography services.\n\nName: ${d.get('name')}\nPhone: ${d.get('phone')}\nEvent Type: ${d.get('event')}\nEvent Date: ${d.get('date')||'Not specified'}\nMessage: ${d.get('message')||'Not specified'}`;window.open(`https://wa.me/917355573856?text=${encodeURIComponent(message)}`,'_blank')});
