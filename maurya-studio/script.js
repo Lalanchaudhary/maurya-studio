@@ -23,11 +23,11 @@ function gtag_report_conversion(url){
 }
 const whatsappMessage='I WANT ID HERE..';
 document.querySelectorAll('a[href*="wa.me/917355573856"]').forEach(link=>{
-  link.href=`https://wa.me/917355573856?text=${encodeURIComponent(whatsappMessage)}`;
+  link.href=`https://wa.me/447355573856?text=${encodeURIComponent(whatsappMessage)}`;
   link.setAttribute('onclick','return gtag_report_conversion(this.href)');
 });
 const heroImage=document.querySelector('.portrait-frame');
 heroImage.setAttribute('role','link');heroImage.setAttribute('tabindex','0');heroImage.setAttribute('aria-label','Message Maurya Studio on WhatsApp');
-const heroWhatsAppUrl=`https://wa.me/917355573856?text=${encodeURIComponent(whatsappMessage)}`;
+const heroWhatsAppUrl=`https://wa.me/447355573856?text=${encodeURIComponent(whatsappMessage)}`;
 const openHeroWhatsApp=()=>gtag_report_conversion(heroWhatsAppUrl);
 heroImage.setAttribute('onclick','return gtag_report_conversion(heroWhatsAppUrl)');heroImage.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openHeroWhatsApp()}});
