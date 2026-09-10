@@ -21,7 +21,7 @@ function gtag_report_conversion(url){
   window.setTimeout(callback,1200);
   return false;
 }
-const whatsappMessage='I WANT ID HERE..';
+const whatsappMessage='I want to know more..';
 document.querySelectorAll('a[href*="wa.me/917355573856"]').forEach(link=>{
   link.href=`https://wa.me/917355573856?text=${encodeURIComponent(whatsappMessage)}`;
   link.setAttribute('onclick','return gtag_report_conversion(this.href)');
